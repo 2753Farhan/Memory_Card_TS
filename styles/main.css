@@ -1,0 +1,61 @@
+.game-board{
+    border: black 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+   
+}
+
+.card{
+    border: black 1px solid;
+    min-width: 100px;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+    background-color: black
+
+}
+.heading {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 490px; /* Match game board width */
+}
+
+.moves, .time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.moves h1, .time h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.move-value, .time-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.flipped {
+    border: black 1px solid;
+    min-width: 100px;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+    background-color: white;
+    ;
+}
+
+.matched {
+    border: black 1px solid;
+    min-width: 100px;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+    background-color: green;
+}
