@@ -1,0 +1,1 @@
+### Readme of Typescript Project
