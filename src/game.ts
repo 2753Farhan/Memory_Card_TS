@@ -23,25 +23,25 @@ let gameState: GameState = {
 export function startGame() {
     cleanupGame();
 
-    const board : HTMLElement | null = document.getElementById("game-board");
+    const board = document.getElementById("game-board") as HTMLElement | null ;
     if (!board) {
         console.error("Game board element not found");
         return;
     }
     board.innerHTML = ""; 
 
-    const input : HTMLElement | null = document.getElementById("unique-card-numbers");
+    const input  = document.getElementById("unique-card-numbers") as HTMLElement | null;
     if (!input) {
         console.error("Input element not found");
         return;
     }
     const uniqueCardNumbers : number = parseInt((input as HTMLInputElement).value);
 
-    const moveValueElement : HTMLElement | null  = document.getElementById("move-value");
+    const moveValueElement = document.getElementById("move-value") as HTMLElement | null;
     if (moveValueElement) {
         moveValueElement.innerHTML = "0";
     }
-    const timeValueElement = document.getElementById("time-value");
+    const timeValueElement = document.getElementById("time-value") as HTMLElement | null;
     if (timeValueElement) {
         timeValueElement.innerHTML = "00:00";
     } else {
@@ -50,7 +50,7 @@ export function startGame() {
 
     let cardArray: string[] = [];
     for (let i = 0; i < uniqueCardNumbers; i++) {
-        const letter = String.fromCharCode(65 + i) ; // 65 = ASCII for 'A'
+        const letter : string = String.fromCharCode(65 + i) ; // 65 = ASCII for 'A'
         cardArray.push(letter, letter); // Push pairs
     }
     cardArray = shuffle(cardArray);
@@ -68,7 +68,11 @@ export function startGame() {
 
 
     cardArray.forEach((card) => {
-        const cardElement :HTMLElement = document.createElement("div");
+        const cardElement = document.createElement("div")  as HTMLDivElement | null;
+        if (!cardElement) {
+            console.error("Card element not found");    
+            return;
+        }
         cardElement.classList.add("card");
         cardElement.textContent = card;
         board.appendChild(cardElement);
@@ -86,7 +90,7 @@ export function startGame() {
 
             if (gameState.clickedCards === 2) {
                 gameState.moveCounter++;
-                const moveValueElement : HTMLElement | null= document.getElementById("move-value");
+                const moveValueElement = document.getElementById("move-value") as HTMLElement | null;
                 if (moveValueElement) { 
                    moveValueElement.innerHTML = gameState.moveCounter.toString();
                 }
@@ -110,7 +114,7 @@ export function startGame() {
         gameState.matchState.seconds++;
         const minutes: number = Math.floor(gameState.matchState.seconds / 60);
         const displaySeconds: number = gameState.matchState.seconds % 60;
-        const timeValueElement : HTMLElement | null= document.getElementById("time-value");
+        const timeValueElement = document.getElementById("time-value") as HTMLElement | null;
         if (!timeValueElement) {
             console.error("Time value element not found");
             return;
@@ -163,11 +167,11 @@ async function matchCards(card1 : Element, card2 : Element, matchState : GameSta
                 clearInterval(gameState.timerInterval);
                 gameState.timerInterval = null;
             
-                const winMessage: HTMLElement | null = document.getElementById("win-message");
+                const winMessage = document.getElementById("win-message") as HTMLElement | null;
                 if (winMessage) {
                         winMessage.style.display = "block";
                 }
-                const restartButton :HTMLElement | null = document.getElementById("restart-button");
+                const restartButton  = document.getElementById("restart-button") as HTMLElement | null;
                 if (restartButton) {        
                     restartButton.style.display = "block";
                 }
