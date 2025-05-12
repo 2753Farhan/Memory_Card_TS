@@ -1,4 +1,4 @@
-import { startGame } from './game';
+import { startGame } from './game.js';
 
 const gameControlButton = document.getElementById("start-button") as HTMLButtonElement | null;
 const restartButton = document.getElementById("restart-button") as HTMLButtonElement | null;
