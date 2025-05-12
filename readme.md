@@ -6,7 +6,6 @@ This documentation highlights how TypeScript improved the JavaScript implementat
 
 ## Type Safety Improvements
 
-
 ### 1. Strict Type Definitions
 
 ```typescript
