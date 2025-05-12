@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.startGame = startGame;
 let gameState = {
     timerInterval: null,
     moveCounter: 0,
@@ -6,7 +9,7 @@ let gameState = {
     matchState: null,
     cardElements: []
 };
-export function startGame() {
+function startGame() {
     cleanupGame();
     const board = document.getElementById("game-board");
     if (!board) {
