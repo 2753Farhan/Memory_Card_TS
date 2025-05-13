@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div>
+        <h1>Memory Card Game</h1>
+        <div class="heading">
+            <!-- <div class="control-group">
+                <label for="card-symbols">Enter symbols (any characters/emojis/numbers):</label>
+                <input type="text" id="card-symbols" placeholder="e.g., ABC123🍎🚗">
+                <small>We'll automatically create </small>
+            </div> -->
+            <div class="controls">
+                <input type="number" id="unique-card-numbers" placeholder="Number of unique cards (even)" min="2" max="26" value="4" />
+                <button id="start-button">Start Game</button>
+              </div>
+            <div class="moves" id="moves">
+                <h2>Number of Moves</h2>
+                <div class="move-value" id="move-value">0</div>     
+            </div>
+            <div class="time" id="time">
+                <h2>Time Passed</h2>
+                <div class="time-value" id="time-value">0</div>     
+            </div>
+        </div>
+        <div id="win-message" style="display: none;">
+            You win!
+            <button id="restart-button" >Play Again</button>
+        </div>
+        <div class="game-board" id="game-board">
+
+        </div>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
